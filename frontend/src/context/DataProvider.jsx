@@ -6,7 +6,34 @@ export const DataContext = createContext();
 export const DataProvider = (props) => {
   const [students, setStudents] = useState([]);
   const [newStudents, setNewStudents] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
   const inputElement = useRef(null);
+  const focusDefault = useRef(null);
+  const inputSearch = useRef(null);
+  const mainInput = document.getElementById("mainInput");
+
+  const AvtoFocus = (e) => {
+    if (e === "default") {
+      focusDefault.current.focus();
+    } else if (e === "student") {
+      inputElement.current.focus();
+    }
+  };
+
+  const InputHandler = (event) => {
+    setSearchValue(event);
+    const editedStudent = students.map((s) => {
+      if (s.slug === event) {
+        const slugs = document.querySelectorAll(".but");
+        slugs.forEach((slug) => {
+          if (event === slug.id) {
+            slug.click();
+          }
+        });
+      } else {
+      }
+    });
+  };
 
   const getData = async () => {
     try {
@@ -72,6 +99,13 @@ export const DataProvider = (props) => {
         addStudent,
         Oncampus,
         inputElement,
+        focusDefault,
+        AvtoFocus,
+        mainInput,
+        inputSearch,
+        searchValue,
+        setSearchValue,
+        InputHandler,
       }}
     >
       {props.children}
