@@ -34,7 +34,7 @@ const StudentItem = ({ newStudent, setNewStudents, id }) => {
           )}
         </div>
         <div
-          className={`px-3 flex-1 justify-center py-1 rounded-full text-white ${
+          className={`px-3 flex-1 text-center justify-center py-1 rounded-full text-white ${
             newStudent.status === "On Campus" ? "bg-blue-400" : "bg-red-300"
           }`}
         >

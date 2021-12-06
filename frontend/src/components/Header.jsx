@@ -71,7 +71,7 @@ const Header = () => {
           id="mainInput"
           type="text"
           name="rr"
-          className="text-white opacity-0 focus:outline-none bg-primary"
+          className="text-white opacity-0 focus:outline-none bg-primary fixed top-0"
           ref={focusDefault}
           autoComplete="nope"
           onChange={(e) => autoCheck(e.target.value)}
